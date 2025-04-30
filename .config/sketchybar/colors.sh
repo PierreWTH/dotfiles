@@ -1,0 +1,3 @@
+#!/bin/sh
+
+export COLOR_BACKGROUND=0x40000000
