@@ -1,4 +1,5 @@
 source "$HOME/.config/sketchybar/colors.sh"
+source "$HOME/.config/sketchybar/icons.sh"
 
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
@@ -26,7 +27,10 @@ sketchybar --default "${default[@]}"
 # https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
 # to indicate active and available mission control spaces.
 
-sketchybar --add event aerospace_workspace_change
+##### Left Items #####
+
+sketchybar --add event aerospace_workspace_change \
+           --add item apple left --set apple background.border_width=0 background.height=24 icon.padding_right=-5 icon=$ICON_APPLE
 
 for sid in $(aerospace list-workspaces --all); do
     sketchybar --add item space.$sid left \
@@ -41,9 +45,6 @@ for sid in $(aerospace list-workspaces --all); do
         script="$CONFIG_DIR/plugins/aerospace.sh $sid"
 done
 
-##### Adding Left Items #####
-# We add some regular items to the left side of the bar, where
-# only the properties deviating from the current defaults need to be set
 
 sketchybar --add item chevron left \
            --set chevron icon= label.drawing=off \
@@ -51,16 +52,7 @@ sketchybar --add item chevron left \
            --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
            --subscribe front_app front_app_switched
 
-##### Adding Right Items #####
-# In the same way as the left items we can add items to the right side.
-# Additional position (e.g. center) are available, see:
-# https://felixkratz.github.io/SketchyBar/config/items#adding-items-to-sketchybar
-
-# Some items refresh on a fixed cycle, e.g. the clock runs its script once
-# every 10s. Other items respond to events they subscribe to, e.g. the
-# volume.sh script is only executed once an actual change in system audio
-# volume is registered. More info about the event system can be found here:
-# https://felixkratz.github.io/SketchyBar/config/events
+##### Right items #####
 
 sketchybar --add item clock right \
            --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
@@ -73,4 +65,5 @@ sketchybar --add item clock right \
            --subscribe battery system_woke power_source_change
 
 ##### Force all scripts to run the first time (never do this in a script) #####
+sketchybar --hotload true
 sketchybar --update
