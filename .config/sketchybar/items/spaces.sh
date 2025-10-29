@@ -4,29 +4,29 @@
 
 sketchybar --add event aerospace_workspace_change \
   --add item apple left --set apple background.border_width=1 \
-                                    background.height=24 \
-                                    background.corner_radius=8 \
-                                    background.color=0x44ffffff \
-                                    icon.padding_left=8 \
-                                    icon.padding_right=8 \
-                                    padding_left=0 \
-                                    padding_right=10 \
-                                    label.drawing=off \
-                                    icon=$ICON_APPLE
+  background.height=24 \
+  background.corner_radius=8 \
+  background.color=0x44ffffff \
+  icon.padding_left=8 \
+  icon.padding_right=8 \
+  padding_left=0 \
+  padding_right=10 \
+  label.drawing=off \
+  icon=$ICON_APPLE
 
 for sid in $(aerospace list-workspaces --all); do
   sketchybar --add item space.$sid left \
     --subscribe space.$sid aerospace_workspace_change \
     --set space.$sid \
     background.color=0x44ffffff \
+    background.padding_right=0 \
+    background.padding_left=0 \
     background.corner_radius=6 \
     background.height=23 \
     background.drawing=off \
     label="$sid" \
-    label.padding_left=8 \
-    label.padding_right=8 \
-    padding_left=2 \
-    padding_right=2 \
+    label.padding_left=14 \
+    label.padding_right=14 \
     icon.drawing=off \
     click_script="aerospace workspace $sid" \
     script="$CONFIG_DIR/plugins/aerospace.sh $sid"
@@ -37,13 +37,6 @@ sketchybar --add item chevron left \
   --add item front_app left \
   --set front_app script="$PLUGIN_DIR/front_app.sh" \
   --subscribe front_app front_app_switched
-
-sketchybar --add bracket left_bracket '/space\..*/' \
-  --set left_bracket background.color=0x44ffffff \
-                     background.corner_radius=8 \
-                     background.height=24 \
-                     background.padding_left=3 \
-                     background.padding_right=10
 
 ##### Right items #####
 

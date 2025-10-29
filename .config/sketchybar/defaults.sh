@@ -7,10 +7,11 @@ default=(
   label.font="SF Pro:Semibold:14.0"
   icon.color=0xffffffff
   label.color=0xffffffff
-  icon.padding_left=4
+  icon.padding_left=10
   icon.padding_right=4
   label.padding_left=4
-  label.padding_right=4
+  label.padding_right=5
+  background.padding_right=5
 )
 sketchybar --default "${default[@]}"
 
