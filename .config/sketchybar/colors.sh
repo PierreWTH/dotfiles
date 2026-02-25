@@ -6,4 +6,4 @@ export COLOR_WHITE=0xffffffff
 
 export COLOR_CYAN=0xff31e1e6
 
-export COLOR_RED=0xFFCBA6F7
+export COLOR_PURPLE=0xFFCBA6F7

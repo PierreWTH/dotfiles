@@ -4,7 +4,7 @@ source "$HOME/.config/sketchybar/colors.sh"
 
 if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
   sketchybar --set $NAME background.drawing=on \
-                         background.color=$COLOR_RED \
+                         background.color=$COLOR_PURPLE \
                          label.color=$COLOR_WHITE
 else
   sketchybar --set $NAME background.drawing=off \
