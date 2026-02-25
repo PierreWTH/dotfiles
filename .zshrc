@@ -7,6 +7,8 @@ fi
 
 export ZSH="$HOME/.oh-my-zsh"
 
+export EDITOR=nvim
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
