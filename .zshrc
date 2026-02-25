@@ -11,8 +11,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
   git
-  zsh-autosuggestions
 )
+
+# Zsh autosuggestion
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #Change location of compdump to not pollute home directory
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
