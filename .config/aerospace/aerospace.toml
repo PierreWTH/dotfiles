@@ -9,7 +9,7 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = ['exec-and-forget sketchybar', 'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=3.0']
+after-startup-command = ['exec-and-forget sketchybar', 'exec-and-forget borders active_color=0xFFCBA6F7 inactive_color=0xff494d64 width=2.0']
 
 # Start AeroSpace at login
 start-at-login = false
@@ -128,6 +128,7 @@ automatically-unhide-macos-hidden-apps = false
     cmd-4 = 'workspace 4'
     cmd-5 = 'workspace 5'
     cmd-6 = 'workspace 6'
+    cmd-7 = 'workspace 7'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     shift-cmd-1 = 'move-node-to-workspace 1'
@@ -136,6 +137,7 @@ automatically-unhide-macos-hidden-apps = false
     shift-cmd-4 = 'move-node-to-workspace 4'
     shift-cmd-5 = 'move-node-to-workspace 5'
     shift-cmd-6 = 'move-node-to-workspace 6'
+    shift-cmd-7 = 'move-node-to-workspace 7'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
@@ -190,6 +192,7 @@ automatically-unhide-macos-hidden-apps = false
     4 = 'main'
     5 = 'secondary'
     6 = 'secondary'
+    7 = 'secondary'
 
 
 
