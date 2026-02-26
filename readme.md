@@ -1,21 +1,12 @@
 ## My minimalist mac setup
 
-Install : 
+Installation : 
 
-Aerospace
-
-Sketchybar : 
-- hack fond nerd pro
-- sf font pro 
-- sketchybar app font 
-
-Terminal : 
-- PowerLevel10k 
-- Oh My Zsh 
-- Btop 
-- Fastfetch
-- yazi 
-- Nvim
+```
+git clone git@github.com:PierreWTH/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+./install.sh
+```
 
 
 ![setup](setup.png)
