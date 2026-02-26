@@ -25,5 +25,36 @@ install_homebrew(){
 }   
 
 install_packages(){
-    
+   log "Installing packages" 
+   brew bundle --file="./Brewfile"
 }
+
+## Oh my zsh ##
+
+install_oh_my_zsh(){
+    if [ -d "$HOME/.oh-my-zsh" ]; then
+    log "Oh My Zsh already installed"
+  else
+    log "Installing Oh My Zsh..."
+    RUNZSH=no CHSH=no sh -c \
+      "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  fi
+}
+
+## Powerlevel10k ##
+
+install_p10k() {
+  ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+
+  if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
+    log "Installing Powerlevel10k..."
+    git clone --depth=1 \
+      https://github.com/romkatv/powerlevel10k.git \
+      "$ZSH_CUSTOM/themes/powerlevel10k"
+  fi
+}
+
+configure_p10k(){
+    log "Configuring p10k theme..."
+}
+
