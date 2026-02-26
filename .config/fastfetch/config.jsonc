@@ -23,7 +23,8 @@
         {
             "type": "title",
             "key": " PC",
-            "keyColor": "green"
+            "keyColor": "green",
+            "format": "{user-name}"
         },
         {
             "type": "host",
