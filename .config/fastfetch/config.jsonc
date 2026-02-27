@@ -87,7 +87,7 @@
         "break",
         {
             "type": "custom",
-            "format": " Environnement",
+            "format": " Environment",
             "outputColor": "blue"
         },
         {
