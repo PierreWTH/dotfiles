@@ -3,7 +3,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.config/zsh/.oh-my-zsh"
 
 export EDITOR=nvim
 
@@ -25,7 +25,7 @@ source $ZSH/oh-my-zsh.sh
 alias s="kitten ssh"
 
 # p10k config
-[[ ! -f ~/.config/.p10k.zsh ]] || source ~/.config/.p10k.zsh
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 # Added for NVM
  export NVM_DIR="$HOME/.nvm"
