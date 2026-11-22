@@ -1,5 +1,7 @@
 # Toggle quick terminal from anywhere
 keybind = global:alt+space=toggle_quick_terminal
+# Side gaps close to AeroSpace (~10px on laptop, ~22px on 3440px screen)
+quick-terminal-size = 40%,98.7%
 
 # Send terminfo / fallback TERM over SSH (replaces kitten ssh)
 shell-integration-features = ssh-env,ssh-terminfo
