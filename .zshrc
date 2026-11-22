@@ -3,36 +3,28 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export ZSH="$HOME/.config/zsh/.oh-my-zsh"
-
 export EDITOR=nvim
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-plugins=(
-  git
-)
+# Completion (dump kept in cache to not pollute home directory)
+[[ -d ~/.cache/zsh ]] || mkdir -p ~/.cache/zsh
+autoload -Uz compinit && compinit -d ~/.cache/zsh/zcompdump
 
 # Zsh autosuggestion
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-#Change location of compdump to not pollute home directory
-export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
-
-source $ZSH/oh-my-zsh.sh
+# p10k theme and config
+source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 # SSH
 alias s="ssh"
-
-# p10k config
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 # Added for NVM
  export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# Security labs 
+# Security labs
 
 KALI_VMX="$HOME/VirtualMachine/Kali Linux.vmwarevm/Kali Linux.vmx"
 

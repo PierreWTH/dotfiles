@@ -38,7 +38,7 @@ create_symlinks() {
 
 ## Homebrew ##
 
-# No other config needed : aerospace, btop, fastfetch, nvim, yazi
+# No other config needed : aerospace, btop, fastfetch, nvim, p10k, yazi
 install_homebrew() {
     # Check the binary directly: brew may be installed but not yet in PATH
     if [ -x /opt/homebrew/bin/brew ]; then
@@ -60,42 +60,12 @@ install_packages() {
     mkdir -p "$HOME/.nvm"
 }
 
-## Oh my zsh ##
-
-export ZSH="$DOTFILES/.config/zsh/.oh-my-zsh"
-
-install_oh_my_zsh() {
-    if [ -d "$ZSH" ]; then
-        log "Oh My Zsh already installed"
-    else
-        log "Installing Oh My Zsh..."
-        RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c \
-            "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    fi
-}
-
-## Powerlevel10k ##
-
-# No need to configure because .p10k.zsh is already in place
-install_p10k() {
-    local theme_dir="$ZSH/custom/themes/powerlevel10k"
-
-    if [ -d "$theme_dir" ]; then
-        log "Powerlevel10k already installed"
-    else
-        log "Installing Powerlevel10k..."
-        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$theme_dir"
-    fi
-}
-
 ## Main script ##
 
 main() {
     create_symlinks
     install_homebrew
     install_packages
-    install_oh_my_zsh
-    install_p10k
 
     # Load the repo config if AeroSpace is already running
     aerospace reload-config 2>/dev/null || true
