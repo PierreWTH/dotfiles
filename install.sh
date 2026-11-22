@@ -28,11 +28,17 @@ create_symlinks() {
     link "$DOTFILES/.config" "$HOME/.config"
     link "$DOTFILES/.zshrc" "$HOME/.zshrc"
     link "$DOTFILES/.zprofile" "$HOME/.zprofile"
+
+    # AeroSpace refuses to start if ~/.aerospace.toml and ~/.config/aerospace both exist
+    if [ -f "$HOME/.aerospace.toml" ]; then
+        log "Backing up ~/.aerospace.toml to ~/.aerospace.toml.backup"
+        mv "$HOME/.aerospace.toml" "$HOME/.aerospace.toml.backup"
+    fi
 }
 
 ## Homebrew ##
 
-# No other config needed : aerospace, btop, fastfetch, kitty, nvim, yazi
+# No other config needed : aerospace, btop, fastfetch, nvim, yazi
 install_homebrew() {
     # Check the binary directly: brew may be installed but not yet in PATH
     if [ -x /opt/homebrew/bin/brew ]; then
@@ -52,9 +58,6 @@ install_packages() {
 
     # nvm needs its directory to exist
     mkdir -p "$HOME/.nvm"
-
-    # Start sketchybar at startup
-    brew services start sketchybar
 }
 
 ## Oh my zsh ##
@@ -93,6 +96,9 @@ main() {
     install_packages
     install_oh_my_zsh
     install_p10k
+
+    # Load the repo config if AeroSpace is already running
+    aerospace reload-config 2>/dev/null || true
 
     log "Setup complete! Open a new terminal to load the config."
 }

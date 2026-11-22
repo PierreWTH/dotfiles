@@ -21,8 +21,8 @@ export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 source $ZSH/oh-my-zsh.sh
 
-# SSH with Kitty
-alias s="kitten ssh"
+# SSH
+alias s="ssh"
 
 # p10k config
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
@@ -38,7 +38,7 @@ KALI_VMX="$HOME/VirtualMachine/Kali Linux.vmwarevm/Kali Linux.vmx"
 
 lab() {
   vmrun start "$KALI_VMX" nogui
-  kitten ssh -D 1080 kali@"$(vmrun getGuestIPAddress "$KALI_VMX" -wait)"
+  ssh -D 1080 kali@"$(vmrun getGuestIPAddress "$KALI_VMX" -wait)"
 }
 
 alias labstop='vmrun suspend "$KALI_VMX"'

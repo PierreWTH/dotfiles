@@ -3,7 +3,7 @@
 </div>
 
 <h3 align="center">
-	Catppuccin Mocha Flavor for <a href="https://github.com/sxyazi/yazi">Yazi</a>
+ Nord Flavor for <a href="https://github.com/sxyazi/yazi">Yazi</a>
 </h3>
 
 ## 👀 Preview
@@ -12,17 +12,25 @@
 
 ## 🎨 Installation
 
+#### For latest yazi version
+
 ```sh
-ya pkg add yazi-rs/flavors:catppuccin-mocha
+ya pkg add AdithyanA2005/nord
+```
+
+#### For yazi version <= 25.5.28
+
+```sh
+ya pack -a AdithyanA2005/nord
 ```
 
 ## ⚙️ Usage
 
-Set the content of your `theme.toml` to enable it as your _dark_ flavor:
+To set it as your dark flavor, change the content of your `theme.toml` to:
 
 ```toml
 [flavor]
-dark = "catppuccin-mocha"
+dark = "nord"
 ```
 
 Make sure your `theme.toml` doesn't contain anything other than `[flavor]`, unless you want to override certain styles of this flavor.

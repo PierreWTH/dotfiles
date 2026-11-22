@@ -1,0 +1,8 @@
+# Toggle quick terminal from anywhere
+keybind = global:alt+space=toggle_quick_terminal
+
+# Send terminfo / fallback TERM over SSH (replaces kitten ssh)
+shell-integration-features = ssh-env,ssh-terminfo
+
+# Colors
+theme = Nord
