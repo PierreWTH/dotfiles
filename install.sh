@@ -11,10 +11,6 @@ log() {
     echo -e "\033[1;34m[SETUP]\033[0m $1"
 }
 
-command_exists() {
-    command -v "$1" >/dev/null 2>&1
-}
-
 # Symlink $1 to $2, backing up $2 if it is a real file/directory
 link() {
     local src="$1" dest="$2"
@@ -38,7 +34,8 @@ create_symlinks() {
 
 # No other config needed : aerospace, btop, fastfetch, kitty, nvim, yazi
 install_homebrew() {
-    if command_exists brew; then
+    # Check the binary directly: brew may be installed but not yet in PATH
+    if [ -x /opt/homebrew/bin/brew ]; then
         log "Homebrew already installed"
     else
         log "Installing homebrew..."
