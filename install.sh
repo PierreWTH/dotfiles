@@ -55,9 +55,6 @@ install_homebrew() {
 install_packages() {
     log "Installing packages"
     brew bundle --file="$DOTFILES/Brewfile"
-
-    # nvm needs its directory to exist
-    mkdir -p "$HOME/.nvm"
 }
 
 ## Main script ##

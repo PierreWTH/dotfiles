@@ -4,3 +4,10 @@ node_modules/
 # Auth / app state written into ~/.config
 .config/gh/hosts.yml
 .config/raycast/
+
+# OpenLogi: only config.toml is tracked
+.config/openlogi/*
+!.config/openlogi/config.toml
+
+# Zed: prompts library is a binary database
+.config/zed/prompts/
