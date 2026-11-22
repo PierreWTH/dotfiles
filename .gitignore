@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+
+# Installed by install.sh
+.config/zsh/.oh-my-zsh/
+
+# Auth / app state written into ~/.config
+.config/gh/hosts.yml
+.config/raycast/

@@ -32,3 +32,14 @@ alias s="kitten ssh"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+# Security labs 
+
+KALI_VMX="$HOME/VirtualMachine/Kali Linux.vmwarevm/Kali Linux.vmx"
+
+lab() {
+  vmrun start "$KALI_VMX" nogui
+  kitten ssh -D 1080 kali@"$(vmrun getGuestIPAddress "$KALI_VMX" -wait)"
+}
+
+alias labstop='vmrun suspend "$KALI_VMX"'
+alias htb-ff='open -na "Zen" --args -P HTB'
